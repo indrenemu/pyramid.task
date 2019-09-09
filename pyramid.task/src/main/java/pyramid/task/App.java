@@ -2,15 +2,14 @@ package pyramid.task;
 
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 import calculation.BestPath;
 import data.structure.TreeRoot;
 
-/**
- * Hello world!
- *
- */
-
 public class App {
+	final static Logger logger = Logger.getLogger(App.class);
+
 	public static void main(String[] args) {
 
 		String path = "files/data.txt";
@@ -18,12 +17,11 @@ public class App {
 		DataExtraction rd = new DataExtraction();
 		List<Integer> resultData = rd.readDataFromFile(path);
 
-		TreeRoot.list = resultData;
-		TreeRoot treeRoot = new TreeRoot(0, 1);
+		TreeRoot treeRoot = new TreeRoot(0, 1, resultData);
 
 		BestPath bestPath = new BestPath();
-		int result = bestPath.calculate(treeRoot);
-		System.out.println(result);
+		int sum = bestPath.calculate(treeRoot);
+		logger.info("TOTAL SUM: " + sum);
 	}
 
 }

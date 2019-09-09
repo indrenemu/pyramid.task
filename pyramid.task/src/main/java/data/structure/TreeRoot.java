@@ -4,25 +4,23 @@ import java.util.List;
 
 public class TreeRoot {
 
-	public static List<Integer> list;
-
 	private int rootnumber;
 
 	private TreeRoot leftChild;
 
 	private TreeRoot rightChild;
 	
-	public TreeRoot(Integer indexOfRootNumber, Integer numberOfItemsInRow) {
+	public TreeRoot (Integer indexOfRootNumber, Integer numberOfItemsInRow, List<Integer> list) {
 
 		if (list.size() > indexOfRootNumber) {
 			
 			this.rootnumber = list.get(indexOfRootNumber);
-			this.leftChild = new TreeRoot(indexOfRootNumber + numberOfItemsInRow, numberOfItemsInRow + 1);
-			this.rightChild = new TreeRoot(indexOfRootNumber + numberOfItemsInRow + 1, numberOfItemsInRow + 1);
+			this.leftChild = new TreeRoot(indexOfRootNumber + numberOfItemsInRow, numberOfItemsInRow + 1, list);
+			this.rightChild = new TreeRoot(indexOfRootNumber + numberOfItemsInRow + 1, numberOfItemsInRow + 1, list);
 			
 		}
 	}
-
+	
 	public TreeRoot getLeftChild() {
 		return leftChild;
 	}
@@ -46,4 +44,5 @@ public class TreeRoot {
 	public void setRoot(int rootnumber) {
 		this.rootnumber = rootnumber;
 	}
+
 }

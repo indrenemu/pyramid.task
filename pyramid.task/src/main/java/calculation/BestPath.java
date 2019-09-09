@@ -45,17 +45,4 @@ public class BestPath {
 	private boolean isEven(int number) {
 		return number % 2 == 0;
 	}
-
-	public int add(TreeRoot root) {
-		return root.getRoot();
-	}
-
-	public boolean existsLeft(TreeRoot root) {
-		root.getLeftChild().getRoot();
-		return false;
-	}
-
-	public boolean existsRight(TreeRoot root) {
-		return false;
-	}
 }
