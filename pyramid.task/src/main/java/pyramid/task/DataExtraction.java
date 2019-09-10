@@ -43,10 +43,10 @@ public class DataExtraction {
 	}
 
 	public static Integer tryParse(String number) {
-		try {
+		if (number instanceof String)
 			return Integer.parseInt(number);
-		} catch (NumberFormatException e) {
-			logger.error("Could not parse string : " + number, e);
+		} else {
+			logger.info("Could not parse string : " + number);
 			return 0;
 		}
 	}
